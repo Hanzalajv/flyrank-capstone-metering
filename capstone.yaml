@@ -1,0 +1,18 @@
+name: flyrank-capstone-metering
+
+run: docker compose up -d
+
+seed: database/migrations/002_seed_plans.sql
+
+test: npm test
+
+base_url: http://localhost:5000
+
+endpoints:
+  - GET /health
+  - GET /health/db
+  - POST /api/tenants
+  - POST /api/generate
+  - GET /api/usage
+  - POST /api/billing/checkout
+  - POST /api/webhooks/stripe
